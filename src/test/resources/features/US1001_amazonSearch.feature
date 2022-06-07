@@ -1,13 +1,17 @@
-Feature: Amazon Search
+@tumu
+Feature: US1001 Kullanıcı Amazon Sayfasında Arama Yapar
 
+  @nutella @ikisi
   Scenario: TC01 (TestCase01) kullanici amazonda Nutella aratir
 
     Given kullanici amazon anasayfasinda
     Then  kullanici Nutella icin arama yapar
     And   sonuclarin Nutella icerdigini test eder
+    And   dryRun'i test eder
     And   sayfayi kapatir
 
 
+    @java @ikisi
   Scenario:  TC02 kullanici amazonda Java aratir
 
     Given kullanici amazon anasayfasinda
@@ -16,6 +20,7 @@ Feature: Amazon Search
     And   sayfayi kapatir
 
 
+      @iphone
   Scenario: TC03 kullanici amazonda iphone aratir
 
     When  kullanici amazon anasayfasinda
