@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
@@ -60,5 +61,40 @@ public class AmazonStepDefinitions {
         Assert.assertTrue(actualAramaSonucStr.contains(arananKelime));
     }
 
+    @Given("kullanici {string} icin arama yapar")
+    public void kullanici_icin_arama_yapar(String istenenKelime) {
+        amazonPage.aramaKutusu.sendKeys(istenenKelime+ Keys.ENTER);
 
+    }
+    @Given("sonuclarin {string} icerdigini test eder")
+    public void sonuclarin_icerdigini_test_eder(String istenenKelime) {
+        String arananKelime= istenenKelime;
+        String actualAramaSonucStr= amazonPage.aramaSonucElementi.getText();
+
+        Assert.assertTrue(actualAramaSonucStr.contains(arananKelime));
+    }
+
+    @Given("kullanici {string} anasayfasinda")
+    public void kullaniciAnasayfasinda(String istenenUrl) {
+
+        Driver.getDriver().get(ConfigReader.getProperty(istenenUrl));
+    }
+
+    @And("url'nin {string} içerdiğini test eder")
+    public void urlNinIçerdiğiniTestEder(String istenenKelime) {
+
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        Assert.assertTrue(actualUrl.contains(istenenKelime));
+
+    }
+
+    @Then("kullanıcı {int} sn bekler")
+    public void kullanıcıSnBekler(int istenenSaniye) {
+
+        try {
+            Thread.sleep(istenenSaniye*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
