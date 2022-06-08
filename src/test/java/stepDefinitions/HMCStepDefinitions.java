@@ -48,4 +48,14 @@ public class HMCStepDefinitions {
     public void gecersizUsernameGirer() {
         hmcPage.usernameKutusu.sendKeys(ConfigReader.getProperty("HMCWrongUsername"));
     }
+
+    @And("gecersiz username girer {string} girer")
+    public void gecersizUsernameGirerGirer(String username) {
+        hmcPage.usernameKutusu.sendKeys(username);
+    }
+
+    @And("gecersiz password girer {string} girer")
+    public void gecersizPasswordGirerGirer(String password) {
+        hmcPage.passwordKutusu.sendKeys(password);
+    }
 }
