@@ -1,5 +1,6 @@
 Feature: US1010 herokuapp Delete testi
 
+  @heroku
   Scenario: TC15 herokuapp'den delete butonu çalışmalı
 
     Given kullanici "herokuappUrl" anasayfasinda
